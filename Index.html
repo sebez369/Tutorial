@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEBEZ TUTORIAL - A8 Monochrome Front Flyer</title>
+    <title>SEBEZ TUTORIAL | Premium K-12 Academic Tutoring — Addis Ababa</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Noto Sans Ethiopic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     
     <script>
         tailwind.config = {
@@ -19,7 +19,6 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'Noto Sans Ethiopic', 'sans-serif'],
-                        ethiopian: ['Noto Sans Ethiopic', 'sans-serif']
                     }
                 }
             }
@@ -28,287 +27,135 @@
     <style>
         body {
             font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
-            background-color: #f8fafc;
-            color: #000000;
-        }
-
-        /* Exact A8 Dimensions: 52mm x 74mm */
-        .a8-card {
-            width: 52mm;
-            height: 74mm;
-            box-sizing: border-box;
-            position: relative;
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        /* Screen Preview Zooming */
-        .scale-100-preview { transform: scale(1); }
-        .scale-200-preview { transform: scale(2.2); transform-origin: top center; }
-        .scale-300-preview { transform: scale(3.0); transform-origin: top center; }
-
-        /* Cut Guide Overlay */
-        .cut-guides::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px dashed #000000;
-            pointer-events: none;
-            z-index: 30;
-        }
-
-        /* Pure Black and White Print Optimization */
-        @media print {
-            body {
-                background: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                color: black !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .no-print {
-                display: none !important;
-            }
-            .print-grid {
-                display: grid !important;
-                grid-template-columns: repeat(4, 52mm) !important;
-                grid-template-rows: repeat(4, 74mm) !important;
-                gap: 1.5mm !important;
-                justify-content: center !important;
-                align-content: center !important;
-                page-break-after: always;
-                width: 100% !important;
-                height: 100vh !important;
-            }
-            .a8-card {
-                box-shadow: none !important;
-                border: 1.5px solid #000000 !important;
-            }
         }
     </style>
 </head>
-<body class="h-full flex flex-col min-h-screen">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-black selection:text-white">
 
-    <!-- Top Navigation & Controls -->
-    <header class="no-print bg-black text-white px-4 py-3 shadow-md flex flex-wrap justify-between items-center gap-3 border-b-2 border-slate-700">
-        <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 bg-white text-black font-black text-xl flex items-center justify-center border-2 border-white rounded-lg shadow">
-                S
-            </div>
-            <div>
-                <h1 class="font-black text-base leading-tight tracking-wider uppercase">SEBEZ TUTORIAL</h1>
-                <p class="text-[11px] text-slate-300 font-semibold">B&W Print Flyer — A8 Pocket Size (52mm × 74mm)</p>
-            </div>
-        </div>
+    <!-- Top Announcement Bar -->
+    <div class="bg-black text-white text-center py-2 px-4 text-xs font-semibold tracking-wider border-b border-slate-800">
+        <span class="inline-block bg-white text-black text-[10px] font-black px-2 py-0.5 rounded mr-2">PROMO</span>
+        FREE TRIAL FOR 1 DAY • የ1 ቀን የሙከራ ትምህርት በነፃ! 
+    </div>
 
-        <div class="flex items-center space-x-2 flex-wrap">
-            <!-- View Mode Switch -->
-            <div class="bg-slate-900 p-1 rounded-lg flex space-x-1 border border-slate-700">
-                <button onclick="switchView('single')" id="btn-single" class="px-3 py-1 text-xs font-bold rounded bg-white text-black transition-all shadow">
-                    <i class="fa-solid fa-file-lines mr-1"></i> Card Preview
-                </button>
-                <button onclick="switchView('grid')" id="btn-grid" class="px-3 py-1 text-xs font-bold rounded text-slate-300 hover:text-white transition-all">
-                    <i class="fa-solid fa-border-all mr-1"></i> 16-up Print Sheet (A4)
-                </button>
-            </div>
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-black text-white font-black text-2xl flex items-center justify-center rounded-xl shadow-lg transition-transform group-hover:scale-105">
+                    S
+                </div>
+                <div>
+                    <span class="block text-xl font-black tracking-widest text-black uppercase leading-none">SEBEZ</span>
+                    <span class="block text-xs font-bold text-slate-500 tracking-wider uppercase mt-1">TUTORIAL</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wide">
+                <a href="#about" class="text-slate-600 hover:text-black transition-colors">Programs</a>
+                <a href="#features" class="text-slate-600 hover:text-black transition-colors">Why Choose Us</a>
+                <a href="#estimator" class="text-slate-600 hover:text-black transition-colors">Tuition Calculator</a>
+                <a href="#contact" class="bg-black text-white px-5 py-2.5 rounded-xl hover:bg-slate-800 transition-all shadow-md hover:shadow-lg">
+                    Get Free Trial
+                </a>
+            </nav>
 
-            <!-- Cut Guide Toggle -->
-            <button onclick="toggleCutGuides()" id="btn-guides" class="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 px-3 py-1 rounded-lg text-xs font-bold transition-all">
-                <i class="fa-solid fa-crop mr-1"></i> Cut Guides: Off
-            </button>
-
-            <!-- Print Button -->
-            <button onclick="window.print()" class="bg-white text-black hover:bg-slate-200 font-black px-4 py-1.5 rounded-lg text-xs shadow transition-all flex items-center space-x-1.5 border border-black">
-                <i class="fa-solid fa-print"></i>
-                <span>Print B&W Sheet</span>
-            </button>
+            <!-- Quick Action Phone (Mobile) -->
+            <a href="tel:0997125050" class="md:hidden flex items-center space-x-2 bg-slate-100 text-black px-3 py-2 rounded-xl text-xs font-black border border-slate-200">
+                <i class="fa-solid fa-phone"></i>
+                <span>Call Now</span>
+            </a>
         </div>
     </header>
 
-    <!-- Main Display Area -->
-    <main class="flex-1 overflow-y-auto p-4 sm:p-8 flex justify-center items-start">
-
-        <!-- SINGLE CARD PREVIEW (B&W FRONT PAGE) -->
-        <div id="view-single" class="flex flex-col items-center w-full">
-            
-            <!-- Controls Bar for Preview -->
-            <div class="flex items-center justify-between w-full max-w-xs mb-6 no-print bg-white p-2 rounded-xl shadow-sm border-2 border-black text-xs">
-                <span class="font-bold text-black pl-2">Zoom Level:</span>
-                <div class="flex gap-1">
-                    <button onclick="setZoom('scale-100-preview')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 font-bold text-black border border-slate-400">100%</button>
-                    <button onclick="setZoom('scale-200-preview')" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 font-bold text-black border border-slate-400">220%</button>
-                    <button onclick="setZoom('scale-300-preview')" class="px-2.5 py-1 rounded bg-black text-white font-bold">300%</button>
+    <!-- Hero Section -->
+    <section class="relative bg-white pt-12 pb-20 border-b border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full text-xs font-bold text-slate-800">
+                        <i class="fa-solid fa-location-dot text-black"></i>
+                        <span>Addis Ababa, Ethiopia</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black leading-tight">
+                        Unlocking Potential <br class="hidden sm:inline" />
+                        Through <span class="underline decoration-wavy decoration-slate-400">Education</span>
+                    </h1>
+                    <p class="text-xl font-medium font-sans text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        "Education is the key to unlocking potential." <br/>
+                        <span class="text-base text-slate-500 font-semibold italic">"ትምህርት የተሻለ የወደፊት ሕይወት መክፈቻ ቁልፍ ነው!"</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="bg-black text-white px-8 py-4 rounded-xl text-sm font-bold shadow-xl hover:bg-slate-800 transition-all text-center flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Claim 1-Day Free Trial</span>
+                        </a>
+                        <a href="https://t.me" target="_blank" class="bg-white text-black border-2 border-black px-8 py-4 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all text-center flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                            <span>Message on Telegram</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Card Container -->
-            <div id="preview-scale-wrapper" class="scale-300-preview transition-transform duration-200 my-8">
                 
-                <!-- MONOCHROME A8 CARD -->
-                <div id="a8-front-card" class="a8-card p-1.5 flex flex-col justify-between border-2 border-black rounded-sm shadow-xl overflow-hidden">
-                    
-                    <!-- Header: Brand Title -->
-                    <div class="text-center border-b-2 border-black pb-0.5">
-                        <h1 class="text-[13px] font-black tracking-widest text-black leading-none uppercase">SEBEZ TUTORIAL</h1>
-                    </div>
-
-                    <!-- Bilingual Main Headline -->
-                    <div class="text-center bg-black text-white py-0.5 px-0.5 rounded-sm my-0.5">
-                        <p class="text-[4.2px] font-black tracking-tight leading-none uppercase">
-                            KG TO GRADE 12 • EVERY SUBJECT • TWO LANGUAGES
-                        </p>
-                        <p class="text-[4.8px] font-bold font-ethiopian leading-tight mt-0.5">
-                            ከኬጂ እስከ 12ኛ ክፍል — በሁሉም ትምህርት ዓይነት — በአማርኛ እና በእንግሊዝኛ
-                        </p>
-                    </div>
-
-                    <!-- Inspirational Quote Box -->
-                    <div class="border-l-2 border-black bg-slate-100 px-1 py-0.5 my-0.5 text-center">
-                        <p class="text-[3.8px] font-extrabold italic text-black leading-tight">
-                            "Education is the key to unlocking potential."
-                        </p>
-                        <p class="text-[3.8px] font-bold font-ethiopian text-black leading-tight">
-                            "ትምህርት የተሻለ የወደፊት ሕይወት መክፈቻ ቁልፍ ነው!"
-                        </p>
-                    </div>
-
-                    <!-- 3 New Substituted Feature Panels in Amharic -->
-                    <div class="space-y-0.5 my-0.5">
-                        <!-- Panel 1 -->
-                        <div class="border border-black p-0.5 rounded-sm flex items-center justify-start px-1 bg-white">
-                            <span class="text-[4px] font-black mr-1 border border-black rounded-full w-2.5 h-2.5 flex items-center justify-center leading-none">1</span>
-                            <span class="text-[4.2px] font-bold font-ethiopian text-black leading-tight">ልምድ ባላቸው አስተማሪዎች</span>
+                <!-- Hero Quick Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-2xl relative border-4 border-black">
+                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-black text-xs font-black px-4 py-2 rounded-lg transform rotate-6 shadow-md">
+                            KG TO GRADE 12
                         </div>
-                        <!-- Panel 2 -->
-                        <div class="border border-black p-0.5 rounded-sm flex items-center justify-start px-1 bg-slate-100">
-                            <span class="text-[4px] font-black mr-1 border border-black rounded-full w-2.5 h-2.5 flex items-center justify-center leading-none">2</span>
-                            <span class="text-[4.2px] font-bold font-ethiopian text-black leading-tight">ቋሚ ክትትል እና ጥራት ያለው አገልግሎት</span>
-                        </div>
-                        <!-- Panel 3 -->
-                        <div class="border border-black p-0.5 rounded-sm flex items-center justify-start px-1 bg-white">
-                            <span class="text-[4px] font-black mr-1 border border-black rounded-full w-2.5 h-2.5 flex items-center justify-center leading-none">3</span>
-                            <span class="text-[4px] font-bold font-ethiopian text-black leading-tight">ከተጨማሪ የክረምት ወቅት የክህሎት ሥልጠናዎች ጋር</span>
+                        <h3 class="text-lg font-bold tracking-widest text-slate-400 uppercase">SEBEZ TUTORIAL</h3>
+                        <p class="text-2xl font-black mt-2">Comprehensive Tutoring for Every Subject</p>
+                        <p class="text-sm font-medium font-sans text-slate-400 mt-1">ከከጂ እስከ 12ኛ ክፍል — በሁሉም ትምህርት ዓይነት</p>
+                        
+                        <div class="mt-8 space-y-4 border-t border-slate-800 pt-6">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+                                <span class="text-sm font-semibold">Local & International Curriculums</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+                                <span class="text-sm font-semibold">Amharic & English Medium Instruction</span>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Free Trial Badge -->
-                    <div class="border-2 border-black bg-black text-white p-0.5 text-center font-black rounded-sm">
-                        <p class="text-[4.8px] uppercase leading-none">
-                            Book a free trial lesson
-                        </p>
-                        <p class="text-[4.5px] font-ethiopian leading-none mt-0.5">
-                            ነፃ የሙከራ ትምህርት ይመዝገቡ
-                        </p>
-                    </div>
-
-                    <!-- Bottom Hours & Contact Strip -->
-                    <div class="border border-black rounded-sm p-0.5 text-center bg-white mt-0.5">
-                        <!-- Hours -->
-                        <div class="text-[3.5px] font-bold text-black border-b border-black pb-0.5 mb-0.5 leading-tight">
-                            <p>Mon - Fri: After Class | Sat & Sun: Any Time</p>
-                            <p class="font-ethiopian">ከሰኞ - አርብ: ከትምህርት በኋላ | ቅዳሜ እና እሁድ: በማንኛውም ሰዓት</p>
-                        </div>
-                        <!-- Contact Info -->
-                        <p class="text-[6px] font-black text-black tracking-tight flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-phone text-[5px]"></i>
-                            <span>Call / WhatsApp: +251 9 24431371</span>
-                        </p>
-                        <div class="text-[3.6px] font-bold text-black border-t border-black pt-0.5 mt-0.5 text-center">
-                            <span><i class="fa-solid fa-location-dot"></i> Bulbula, Addis Ababa</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- PRINT SHEET VIEW (16 B&W COPIES ON A4 SHEET) -->
-        <div id="view-grid" class="hidden w-full max-w-5xl">
-            <div class="text-center mb-4 no-print">
-                <span class="bg-black text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    <i class="fa-solid fa-print mr-1"></i> A4 B&W Mass-Print Grid (16 Cards Tiled)
-                </span>
-                <p class="text-xs text-slate-600 mt-1">Optimized for standard black & white laser/inkjet printers and photocopiers.</p>
-            </div>
-
-            <!-- Grid Container -->
-            <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-xl border-2 border-black">
-                <div id="grid-container" class="print-grid grid grid-cols-2 sm:grid-cols-4 gap-2 justify-center mx-auto">
-                    <!-- 16 Front Page B&W Cards generated by JS -->
                 </div>
             </div>
         </div>
+    </section>
 
-    </main>
+    <!-- Core Programs Section -->
+    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-black tracking-tight text-black sm:text-4xl">Academic Curriculums Covered</h2>
+            <p class="mt-3 text-lg text-slate-600 font-medium">Tailored educational approaches built directly around modern syllabus requirements.</p>
+        </div>
 
-    <!-- Footer -->
-    <footer class="no-print bg-black text-slate-300 text-center py-3 text-xs border-t border-slate-800">
-        <p>SEBEZ TUTORIAL © 2026. High-Contrast A8 B&W Print Spec (52mm × 74mm). Bulbula, Addis Ababa</p>
-    </footer>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white border-2 border-slate-200 p-8 rounded-2xl shadow-sm hover:border-black transition-all">
+                <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-school text-xl text-black"></i>
+                </div>
+                <h3 class="text-xl font-bold text-black">Local Curriculum</h3>
+                <p class="text-sm font-semibold text-slate-500 font-sans mt-0.5">የሀገር ውስጥ ሥርዓተ ትምህርት</p>
+                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+                    Complete syllabus alignment covering Ministry Examinations preparation, tailored continuous assessment frameworks, and deep mastery across national textbooks.
+                </p>
+            </div>
 
-    <!-- Interactive Script -->
-    <script>
-        // Generate 16 B&W Front Cards in the print sheet
-        const gridContainer = document.getElementById('grid-container');
-        const cardTemplate = document.getElementById('a8-front-card').outerHTML;
-        
-        let gridHTML = '';
-        for (let i = 0; i < 16; i++) {
-            gridHTML += cardTemplate;
-        }
-        gridContainer.innerHTML = gridHTML;
+            <div class="bg-white border-2 border-slate-200 p-8 rounded-2xl shadow-sm hover:border-black transition-all">
+                <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-globe text-xl text-black"></i>
+                </div>
+                <h3 class="text-xl font-bold text-black">International Curriculum</h3>
+                <p class="text-sm font-semibold text-slate-500 font-sans mt-0.5">የዓለም አቀፍ ሥርዓተ ትምህርት</p>
+                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+                    Expertly tailored assistance explicitly matching Cambridge (IGCSE/A-Levels), International Baccalaureate (IB), and American curriculum metrics.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        // View Mode Switcher
-        function switchView(mode) {
-            const singleView = document.getElementById('view-single');
-            const gridView = document.getElementById('view-grid');
-            const btnSingle = document.getElementById('btn-single');
-            const btnGrid = document.getElementById('btn-grid');
-
-            if (mode === 'single') {
-                singleView.classList.remove('hidden');
-                gridView.classList.add('hidden');
-                btnSingle.className = "px-3 py-1 text-xs font-bold rounded bg-white text-black transition-all shadow";
-                btnGrid.className = "px-3 py-1 text-xs font-bold rounded text-slate-300 hover:text-white transition-all";
-            } else {
-                singleView.classList.add('hidden');
-                gridView.classList.remove('hidden');
-                btnGrid.className = "px-3 py-1 text-xs font-bold rounded bg-white text-black transition-all shadow";
-                btnSingle.className = "px-3 py-1 text-xs font-bold rounded text-slate-300 hover:text-white transition-all";
-            }
-        }
-
-        // Set Preview Zoom
-        function setZoom(scaleClass) {
-            const wrapper = document.getElementById('preview-scale-wrapper');
-            wrapper.className = scaleClass + ' transition-transform duration-200 my-8';
-        }
-
-        // Toggle Cut Guides
-        let guidesEnabled = false;
-        function toggleCutGuides() {
-            guidesEnabled = !guidesEnabled;
-            const cards = document.querySelectorAll('.a8-card');
-            const btn = document.getElementById('btn-guides');
-
-            cards.forEach(card => {
-                if (guidesEnabled) {
-                    card.classList.add('cut-guides');
-                } else {
-                    card.classList.remove('cut-guides');
-                }
-            });
-
-            if (guidesEnabled) {
-                btn.innerHTML = '<i class="fa-solid fa-crop mr-1"></i> Cut Guides: On';
-                btn.classList.add('text-white', 'border-white');
-            } else {
-                btn.innerHTML = '<i class="fa-solid fa-crop mr-1"></i> Cut Guides: Off';
-                btn.classList.remove('text-white', 'border-white');
-            }
-        }
-    </script>
-</body>
-</html>
+    <!-- Why Choose Us / Value Proposition Section -->
+    <section id="features" class="bg-slate-100 py-20 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
