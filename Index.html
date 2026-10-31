@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEBEZ TUTORIAL | Premium K-12 Academic Tutoring — Addis Ababa</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Noto Sans Ethiopic -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <!-- Tailwind CSS CDN (Fixed) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Noto Sans Ethiopic (Fixed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons (Fixed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
         tailwind.config = {
@@ -19,6 +22,13 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'Noto Sans Ethiopic', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#1a1a1a',
+                            gray: '#f8fafc',
+                        }
                     }
                 }
             }
@@ -28,18 +38,35 @@
         body {
             font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
         }
+        /* Custom underline animation */
+        .hover-underline {
+            position: relative;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .hover-underline:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-black selection:text-white">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-black text-white text-center py-2 px-4 text-xs font-semibold tracking-wider border-b border-slate-800">
-        <span class="inline-block bg-white text-black text-[10px] font-black px-2 py-0.5 rounded mr-2">PROMO</span>
-        FREE TRIAL FOR 1 DAY • የ1 ቀን የሙከራ ትምህርት በነፃ! 
+    <div class="bg-black text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider border-b border-slate-800">
+        <span class="inline-block bg-white text-black text-[10px] font-black px-2 py-0.5 rounded mr-2 align-middle">PROMO</span>
+        <span class="align-middle">FREE TRIAL FOR 1 DAY • የ1 ቀን የሙከራ ትምህርት በነፃ!</span>
     </div>
 
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 bg-black text-white font-black text-2xl flex items-center justify-center rounded-xl shadow-lg transition-transform group-hover:scale-105">
@@ -52,16 +79,16 @@
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-wide">
-                <a href="#about" class="text-slate-600 hover:text-black transition-colors">Programs</a>
-                <a href="#features" class="text-slate-600 hover:text-black transition-colors">Why Choose Us</a>
-                <a href="#estimator" class="text-slate-600 hover:text-black transition-colors">Tuition Calculator</a>
-                <a href="#contact" class="bg-black text-white px-5 py-2.5 rounded-xl hover:bg-slate-800 transition-all shadow-md hover:shadow-lg">
+                <a href="#about" class="text-slate-600 hover:text-black transition-colors hover-underline">Programs</a>
+                <a href="#features" class="text-slate-600 hover:text-black transition-colors hover-underline">Why Choose Us</a>
+                <a href="#estimator" class="text-slate-600 hover:text-black transition-colors hover-underline">Tuition Calculator</a>
+                <a href="#contact" class="bg-black text-white px-6 py-2.5 rounded-xl hover:bg-slate-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     Get Free Trial
                 </a>
             </nav>
 
             <!-- Quick Action Phone (Mobile) -->
-            <a href="tel:0997125050" class="md:hidden flex items-center space-x-2 bg-slate-100 text-black px-3 py-2 rounded-xl text-xs font-black border border-slate-200">
+            <a href="tel:0997125050" class="md:hidden flex items-center space-x-2 bg-slate-100 text-black px-4 py-2.5 rounded-xl text-xs font-black border border-slate-200 hover:bg-slate-200 transition-colors">
                 <i class="fa-solid fa-phone"></i>
                 <span>Call Now</span>
             </a>
@@ -69,28 +96,31 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-white pt-12 pb-20 border-b border-slate-200 overflow-hidden">
+    <section class="relative bg-white pt-16 pb-24 border-b border-slate-200 overflow-hidden">
+        <!-- Subtle background pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full text-xs font-bold text-slate-800">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200 px-4 py-2 rounded-full text-xs font-bold text-slate-800 shadow-sm">
                         <i class="fa-solid fa-location-dot text-black"></i>
                         <span>Addis Ababa, Ethiopia</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black leading-tight">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black leading-[1.1]">
                         Unlocking Potential <br class="hidden sm:inline" />
-                        Through <span class="underline decoration-wavy decoration-slate-400">Education</span>
+                        Through <span class="underline decoration-wavy decoration-slate-400 decoration-4 underline-offset-4">Education</span>
                     </h1>
-                    <p class="text-xl font-medium font-sans text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    <p class="text-xl font-medium text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                         "Education is the key to unlocking potential." <br/>
-                        <span class="text-base text-slate-500 font-semibold italic">"ትምህርት የተሻለ የወደፊት ሕይወት መክፈቻ ቁልፍ ነው!"</span>
+                        <span class="text-base text-slate-500 font-semibold italic mt-2 block">"ትምህርት የተሻለ የወደፊት ሕይወት መክፈቻ ቁልፍ ነው!"</span>
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#contact" class="bg-black text-white px-8 py-4 rounded-xl text-sm font-bold shadow-xl hover:bg-slate-800 transition-all text-center flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-calendar-check"></i>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="tel:0997125050" class="bg-black text-white px-8 py-4 rounded-xl text-sm font-bold shadow-xl hover:bg-slate-800 hover:-translate-y-1 transition-all text-center flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-calendar-check text-lg"></i>
                             <span>Claim 1-Day Free Trial</span>
                         </a>
-                        <a href="https://t.me" target="_blank" class="bg-white text-black border-2 border-black px-8 py-4 rounded-xl text-sm font-bold hover:bg-slate-50 transition-all text-center flex items-center justify-center space-x-2">
+                        <a href="https://t.me/s_ebez" target="_blank" rel="noopener noreferrer" class="bg-white text-black border-2 border-black px-8 py-4 rounded-xl text-sm font-bold hover:bg-slate-50 hover:-translate-y-1 transition-all text-center flex items-center justify-center space-x-3">
                             <i class="fa-brands fa-telegram text-lg"></i>
                             <span>Message on Telegram</span>
                         </a>
@@ -98,22 +128,30 @@
                 </div>
                 
                 <!-- Hero Quick Visual Card -->
-                <div class="lg:col-span-5">
-                    <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-2xl relative border-4 border-black">
-                        <div class="absolute -top-4 -right-4 bg-yellow-400 text-black text-xs font-black px-4 py-2 rounded-lg transform rotate-6 shadow-md">
+                <div class="lg:col-span-5 relative">
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full blur-2xl opacity-40"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-slate-300 rounded-full blur-3xl opacity-50"></div>
+                    
+                    <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-2xl relative border-4 border-black z-10 overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-black px-6 py-2 rounded-bl-2xl shadow-md rotate-0">
                             KG TO GRADE 12
                         </div>
-                        <h3 class="text-lg font-bold tracking-widest text-slate-400 uppercase">SEBEZ TUTORIAL</h3>
-                        <p class="text-2xl font-black mt-2">Comprehensive Tutoring for Every Subject</p>
-                        <p class="text-sm font-medium font-sans text-slate-400 mt-1">ከከጂ እስከ 12ኛ ክፍል — በሁሉም ትምህርት ዓይነት</p>
+                        <div class="absolute -right-4 -bottom-4 opacity-10">
+                            <i class="fa-solid fa-graduation-cap text-9xl"></i>
+                        </div>
                         
-                        <div class="mt-8 space-y-4 border-t border-slate-800 pt-6">
+                        <h3 class="text-lg font-bold tracking-widest text-slate-400 uppercase mt-4">SEBEZ TUTORIAL</h3>
+                        <p class="text-2xl font-black mt-2 leading-tight">Comprehensive Tutoring for Every Subject</p>
+                        <p class="text-sm font-medium text-slate-400 mt-2">ከከጂ እስከ 12ኛ ክፍል — በሁሉም ትምህርት ዓይነት</p>
+                        
+                        <div class="mt-8 space-y-4 border-t border-slate-700 pt-6 relative z-10">
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
                                 <span class="text-sm font-semibold">Local & International Curriculums</span>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+                                <div class="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs shrink-0"><i class="fa-solid fa-check"></i></div>
                                 <span class="text-sm font-semibold">Amharic & English Medium Instruction</span>
                             </div>
                         </div>
@@ -124,38 +162,130 @@
     </section>
 
     <!-- Core Programs Section -->
-    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl font-black tracking-tight text-black sm:text-4xl">Academic Curriculums Covered</h2>
-            <p class="mt-3 text-lg text-slate-600 font-medium">Tailored educational approaches built directly around modern syllabus requirements.</p>
+            <p class="mt-4 text-lg text-slate-600 font-medium">Tailored educational approaches built directly around modern syllabus requirements.</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white border-2 border-slate-200 p-8 rounded-2xl shadow-sm hover:border-black transition-all">
-                <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-school text-xl text-black"></i>
+            <div class="bg-white border-2 border-slate-200 p-10 rounded-3xl shadow-sm hover:border-black hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-school text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-black">Local Curriculum</h3>
-                <p class="text-sm font-semibold text-slate-500 font-sans mt-0.5">የሀገር ውስጥ ሥርዓተ ትምህርት</p>
-                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
-                    Complete syllabus alignment covering Ministry Examinations preparation, tailored continuous assessment frameworks, and deep mastery across national textbooks.
+                <h3 class="text-2xl font-bold text-black">Local Curriculum</h3>
+                <p class="text-sm font-semibold text-slate-500 mt-1">የሀገር ውስጥ ሥርዓተ ትምህርት</p>
+                <p class="mt-6 text-slate-600 leading-relaxed">
+                    Complete syllabus alignment covering Ministry Examination preparation, tailored continuous assessment frameworks, and deep mastery across national textbooks.
                 </p>
             </div>
 
-            <div class="bg-white border-2 border-slate-200 p-8 rounded-2xl shadow-sm hover:border-black transition-all">
-                <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-globe text-xl text-black"></i>
+            <div class="bg-white border-2 border-slate-200 p-10 rounded-3xl shadow-sm hover:border-black hover:shadow-xl transition-all duration-300 group">
+                <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-globe text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-black">International Curriculum</h3>
-                <p class="text-sm font-semibold text-slate-500 font-sans mt-0.5">የዓለም አቀፍ ሥርዓተ ትምህርት</p>
-                <p class="mt-4 text-slate-600 text-sm leading-relaxed">
-                    Expertly tailored assistance explicitly matching Cambridge (IGCSE/A-Levels), International Baccalaureate (IB), and American curriculum metrics.
+                <h3 class="text-2xl font-bold text-black">International Curriculum</h3>
+                <p class="text-sm font-semibold text-slate-500 mt-1">የዓለም አቀፍ ሥርዓተ ትምህርት</p>
+                <p class="mt-6 text-slate-600 leading-relaxed">
+                    Expertly tailored assistance matching Cambridge (IGCSE/A-Levels), International Baccalaureate (IB), and American curriculum metrics.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us / Value Proposition Section -->
-    <section id="features" class="bg-slate-100 py-20 border-y border-slate-200">
+    <!-- Why Choose Us Section -->
+    <section id="features" class="bg-slate-100 py-24 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-black tracking-tight text-black sm:text-4xl">Why Choose SEBEZ?</h2>
+                <p class="mt-4 text-lg text-slate-600 font-medium">We provide the environment and expertise to help students excel.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-slate-50 text-black rounded-full flex items-center justify-center mb-6 shadow-inner">
+                        <i class="fa-solid fa-user-tie text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-black">አስተማሪዎች</h3>
+                    <p class="text-sm font-semibold text-slate-500 mt-1 mb-4">Qualified Teachers</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">አስመራሪዎች በከፍተኛ ብቃት የተመረጡ እና ልምድ ያላቸው መምህራን።</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-slate-50 text-black rounded-full flex items-center justify-center mb-6 shadow-inner">
+                        <i class="fa-solid fa-book-open text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-black">ትምህርታዊ አገልግሎት</h3>
+                    <p class="text-sm font-semibold text-slate-500 mt-1 mb-4">Tutorial Services</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">ለሁሉም የትምህርት ዓይነቶች እና ክፍሎች የሚሰጥ ሁሉን አቀፍ ድጋፍ።</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-slate-50 text-black rounded-full flex items-center justify-center mb-6 shadow-inner">
+                        <i class="fa-solid fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-black">ምቹ የጊዜ ሰሌዳ</h3>
+                    <p class="text-sm font-semibold text-slate-500 mt-1 mb-4">Flexible Schedule</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">ከትምህርት ቤት በኋላ እና ቅዳሜ እሁድ ለሚመችዎት ጊዜ የሚሰጥ።</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Footer Area -->
+    <section id="contact" class="py-20 bg-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 32px 32px;"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl sm:text-4xl font-black mb-4">Ready to Excel?</h2>
+            <p class="text-lg text-slate-300 mb-10">Join us for a free trial and experience the SEBEZ difference.</p>
+            
+            <!-- Schedule Info -->
+            <div class="inline-block bg-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 mb-12 shadow-2xl text-left w-full max-w-2xl">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">Schedule</p>
+                        <p class="text-sm font-semibold text-white">Mon - Fri: After Class</p>
+                        <p class="text-sm font-semibold text-white">Sat & Sun: Any Time</p>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">ሰኞ - ዓርብ፡ ከትምህርት በኋላ | ቅዳሜ እና እሁድ፡ በማንኛውም ሰዓት</p>
+                    </div>
+                    <div class="h-px w-full sm:w-px sm:h-16 bg-slate-700 hidden sm:block"></div>
+                    <div class="text-center sm:text-right">
+                        <p class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-1">Free Trial</p>
+                        <p class="text-sm font-semibold text-white">1 Day Free Trial Available</p>
+                        <p class="text-xs text-slate-400 mt-1 font-medium">የ1 ቀን የሙከራ ትምህርት በነፃ!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 mb-8">
+                <!-- Phone Link -->
+                <a href="tel:0997125050" class="flex items-center space-x-3 text-xl font-bold hover:text-slate-300 transition-colors group">
+                    <div class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center group-hover:bg-slate-200 transition-colors">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <span>0997125050</span>
+                </a>
+                
+                <!-- Telegram Link -->
+                <a href="https://t.me/s_ebez" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-xl font-bold hover:text-slate-300 transition-colors group">
+                    <div class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center group-hover:bg-slate-200 transition-colors">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <span>@s_ebez</span>
+                </a>
+            </div>
+            
+            <div class="flex justify-center items-center space-x-2 text-slate-400 text-sm font-medium">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Addis Ababa / አዲስ አበባ</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
